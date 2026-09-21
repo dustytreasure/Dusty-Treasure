@@ -75,6 +75,14 @@
   .pick .o{font-size:12px;color:var(--muted)}
   .subnote{font-size:12.5px;color:var(--muted-2);margin-top:14px;line-height:1.5}
   footer{max-width:920px;margin:40px auto 0;padding:20px 18px;border-top:1px solid var(--line-soft);color:var(--muted-2);font-size:12.5px;text-align:center}
+  .live-link{display:flex;align-items:center;gap:14px;margin:18px 0 4px;padding:15px 18px;border:1px solid var(--line);border-radius:3px;background:var(--bg-3);color:var(--text);text-decoration:none;transition:border-color .2s,transform .2s}
+  .live-link:hover{border-color:var(--gold);transform:translateY(-1px)}
+  .live-link b{font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:.02em;font-size:16px}
+  .live-link small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+  .live-link .live-arrow{margin-left:auto;color:var(--gold-bright);font-size:20px;font-family:"Oswald",sans-serif}
+  .live-dot{width:10px;height:10px;border-radius:50%;background:#e5484d;flex:none;animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(229,72,77,.6)}70%{box-shadow:0 0 0 8px rgba(229,72,77,0)}100%{box-shadow:0 0 0 0 rgba(229,72,77,0)}}
+  @media (prefers-reduced-motion:reduce){.live-dot{animation:none}}
 </style>
 </head>
 <body>
@@ -99,6 +107,14 @@
     <h2 class="section">Current Standings</h2>
     <p class="section-note" id="current-note"></p>
     <div id="current-standings"></div>
+    <a class="live-link" href="https://football.fantasysports.yahoo.com/f1/678591" target="_blank" rel="noopener">
+      <span class="live-dot"></span>
+      <span>
+        <b>Live scores on Yahoo</b>
+        <small>Real-time matchups &amp; points &middot; opens Yahoo</small>
+      </span>
+      <span class="live-arrow">&rarr;</span>
+    </a>
     <div style="margin-top:32px">
       <div class="eyebrow">HOW THE BOARD FELL</div>
       <h2 class="section">2026 Draft Order</h2>
@@ -259,19 +275,19 @@ const SEASONS = {
     {"owner": "Spencer D.", "team": "Quon Solo", "w": 9, "l": 5, "pf": 1710.08, "pa": 1711.62, "place": 5},
     {"owner": "Zach K.", "team": "Jenn \"GoldenShower\" Kittle-man", "w": 7, "l": 7, "pf": 1750.64, "pa": 1582.96, "place": 4},
   ],
-  2026: [   // current season — fill in as games are played
-    {"owner": "Andrew J.", "team": "Room 40", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Brent K.", "team": "It's Gonna Be Maye", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Daniel S.", "team": "Lik my Pricetate", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Gabe D.", "team": "Bijan al Gaib", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Jacob E.", "team": "The Alec Pierce'd Nipple Club", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Jonathan D.", "team": "Jonathan's Team", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Josh S.", "team": "Aidan's Alpaca's", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Joshua E.", "team": "Klig Reaper", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Karger Bros", "team": "School of Brock", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Sam N.", "team": "The Commish", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Spencer D.", "team": "Quon Solo", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
-    {"owner": "Zach K.", "team": "Child McBride", "w": 0, "l": 0, "pf": 0, "pa": 0, "place": 0},
+  2026: [   // current season — Week 1 results (place stays 0 until the season ends)
+    {"owner": "Andrew J.", "team": "Guyknowballogist", "w": 1, "l": 0, "pf": 146.26, "pa": 114.56, "place": 0},
+    {"owner": "Brent K.", "team": "It's Gonna Be Maye", "w": 0, "l": 1, "pf": 124.22, "pa": 139.50, "place": 0},
+    {"owner": "Daniel S.", "team": "Lik my Pricetate", "w": 1, "l": 0, "pf": 167.76, "pa": 120.30, "place": 0},
+    {"owner": "Gabe D.", "team": "Bijan al Gaib", "w": 0, "l": 1, "pf": 114.56, "pa": 146.26, "place": 0},
+    {"owner": "Jacob E.", "team": "The Alec Pierce'd Nipple Club", "w": 1, "l": 0, "pf": 137.44, "pa": 121.50, "place": 0},
+    {"owner": "Jonathan D.", "team": "Jonathan's Team", "w": 1, "l": 0, "pf": 139.50, "pa": 124.22, "place": 0},
+    {"owner": "Josh S.", "team": "Aidan's Alpacas", "w": 0, "l": 1, "pf": 120.30, "pa": 167.76, "place": 0},
+    {"owner": "Joshua E.", "team": "Klig Reaper", "w": 0, "l": 1, "pf": 117.46, "pa": 151.26, "place": 0},
+    {"owner": "Karger Bros", "team": "School of Brock", "w": 1, "l": 0, "pf": 134.32, "pa": 105.46, "place": 0},
+    {"owner": "Sam N.", "team": "The Commish", "w": 1, "l": 0, "pf": 151.26, "pa": 117.46, "place": 0},
+    {"owner": "Spencer D.", "team": "Shmelky See Shmelky do", "w": 0, "l": 1, "pf": 105.46, "pa": 134.32, "place": 0},
+    {"owner": "Zach K.", "team": "Child McBride", "w": 0, "l": 1, "pf": 121.50, "pa": 137.44, "place": 0},
   ],
 };
 
@@ -279,6 +295,7 @@ const SEASONS = {
 const $ = s => document.querySelector(s);
 const played = arr => arr.some(t => (t.w + t.l) > 0);
 const lastPlace = arr => Math.max(0, ...arr.map(t => t.place || 0));
+const hasChamp = arr => arr.some(t => t.place === 1);  // a completed season has a champion
 
 document.getElementById("current-year-eyebrow").textContent = LEAGUE.currentSeason + " SEASON";
 
@@ -364,7 +381,7 @@ showHistory(histYears[0]);
 
 function allTime(){
   const m={};
-  Object.entries(SEASONS).forEach(([y,arr])=>{if(!played(arr))return;const mp=lastPlace(arr);
+  Object.entries(SEASONS).forEach(([y,arr])=>{if(!hasChamp(arr))return;const mp=lastPlace(arr);
     arr.forEach(t=>{const k=t.owner;if(!m[k])m[k]={owner:t.owner,seasons:0,w:0,l:0,pf:0,pa:0,champs:0,sackos:0};
       const o=m[k];o.seasons++;o.w+=t.w;o.l+=t.l;o.pf+=t.pf;o.pa+=t.pa;
       if(t.place===1)o.champs++;if(t.place===mp&&mp>0)o.sackos++;});});
@@ -386,7 +403,7 @@ function renderAllTime(){
 renderAllTime();
 
 function mostRecentPlayed(){const ys=Object.keys(SEASONS).map(Number).sort((a,b)=>b-a);
-  for(const y of ys)if(played(SEASONS[y]))return y;return null;}
+  for(const y of ys)if(hasChamp(SEASONS[y]))return y;return null;}
 function card(label,value,who){return `<div class="card"><div class="label">${label}</div><div class="value">${value}</div><div class="who">${who}</div></div>`;}
 function renderDash(){
   const at=allTime();const cards=$("#dash-cards");const ry=mostRecentPlayed();
